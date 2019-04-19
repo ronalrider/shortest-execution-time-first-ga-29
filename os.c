@@ -51,7 +51,7 @@ int i=0,t=3;
 int done=0,small=0,flag=0,smallest=100;
 
 	
-	printf("\n\n\t\tSHORTEST JOB FIRST\t\t\n\n");
+	printf("\n\n\t\t\tSHORTEST JOB FIRST\t\t\t\n\n");
 	for(i=0;i<n;i++)
 	{
 	p[i].remt=p[i].bt;
@@ -138,12 +138,12 @@ void print_table(process p[], int n)
     int i;
 
     puts("\n+-----+------------+--------------+-----------------+------------------+");
-    puts("| PID | Burst Time | Waiting Time | Turnaround Time |  Completion Time |");
+    puts("| PID | Burst Time | Completion Time | Turnaround Time | Waiting Time |");
     puts("+-----+------------+--------------+-----------------+------------------+");
 
     for(i=0; i<n; i++) {
         printf("| %2d  |     %2d     |      %2d      |        %2d       |        %2d        | \n"
-               , p[i].pid, p[i].bt, p[i].wt, p[i].tat,p[i].comt );
+               , p[i].pid, p[i].bt, p[i].comt, p[i].tat,p[i].wt );
         puts("+-----+------------+--------------+-----------------+------------------+");
     }
 
