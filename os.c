@@ -31,7 +31,7 @@ int exe_order[n];
 			p[i].pid= i+1;
 		printf("\nEnter Burst time and Arrival time for P%d : ",i+1);
 		scanf("%d%d",&p[i].bt,&p[i].at);
-		
+
 	}
 
 system("cls");
@@ -52,7 +52,7 @@ void sjf(struct process p[],int n,int exe_order[])
 int i=0,t=3,k=0;
 int done=0,small=0,flag=0,smallest=1000;
 
-	
+
 	printf("\n\n\t\t**************SHORTEST EXECUTION TIME FIRST**************\n\n");
 
 	for(i=0;i<n;i++)
@@ -87,7 +87,7 @@ int done=0,small=0,flag=0,smallest=1000;
 			t+=p[small].remt;
 			p[small].remt=0;
 		}
-		
+
 		smallest=p[small].remt;
 		if (smallest==0)
 		{
@@ -103,7 +103,7 @@ int done=0,small=0,flag=0,smallest=1000;
 			k++;
 		}
 
-		
+
 	}
 }
 
@@ -112,7 +112,7 @@ void calculate(struct process p[],int n)
 
    for(i=0;i<n;i++)
    {
-   // CALCULATING TURN ARROUND TIME 
+   // CALCULATING TURN ARROUND TIME
    	p[i].tat=p[i].comt - p[i].at;
 	// CACULATING WAITING TIME
     p[i].wt=p[i].tat - p[i].bt;
@@ -142,7 +142,7 @@ printf("\n\tAvarage Waiting time is = \t%f",awt);
 
 	printf("\n\n\n\tThe order of execution of the processes are:\n");
 	printf("\n\t\t");
-	
+
 	for(i=0;i<n;i++)
 	{
 		printf("P[%d]->",exe_order[i]);
@@ -160,7 +160,7 @@ void print_table(process p[], int n)
 
     for(i=0; i<n; i++) {
         printf("| %2d  |      %2d      |     %2d     |       %2d        |       %2d        |      %2d       | \n"
-               , p[i].pid,p[i].at, p[i].bt, p[i].wt, p[i].tat,p[i].comt );
+               , p[i].pid,p[i].at, p[i].bt, p[i].comt, p[i].tat,p[i].wt );
         puts("+-----+--------------+------------+-----------------+-----------------+---------------+");
     }
 
