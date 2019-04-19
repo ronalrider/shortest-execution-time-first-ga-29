@@ -48,10 +48,11 @@ void sjf(struct process p[],int n)
 {
 
 int i=0,t=3;
-int done=0,small=0,flag=0,smallest=100;
+int done=0,small=0,flag=0,smallest=1000;
 
 	
-	printf("\n\n\t\t\tSHORTEST JOB FIRST\t\t\t\n\n");
+	printf("\n\n\t\t**************SHORTEST EXECUTION TIME FIRST**************\n\n");
+	printf("This is order execution of the processes\n");
 	for(i=0;i<n;i++)
 	{
 	p[i].remt=p[i].bt;
@@ -88,7 +89,7 @@ int done=0,small=0,flag=0,smallest=100;
 		smallest=p[small].remt;
 		if (smallest==0)
 		{
-			smallest=100;
+			smallest=1000;
 		}
 		if(p[small].remt==0)
 		{
@@ -129,23 +130,22 @@ for(i=0;i<n;i++)
 atat/=n;
 awt/=n;
 
-printf("\nAvarage turn around time is %f",atat);
-printf("\nAvarage Waiting time is %f",awt);
+printf("\n\nAvarage turn around time is %f\n",atat);
+printf("\n\nAvarage Waiting time is %f",awt);
 }
 
 void print_table(process p[], int n)
 {
     int i;
 
-    puts("\n+-----+------------+--------------+-----------------+------------------+");
-    puts("| PID | Burst Time | Completion Time | Turnaround Time | Waiting Time |");
-    puts("+-----+------------+--------------+-----------------+------------------+");
+    puts("+-----+--------------+------------+-----------------+-----------------+---------------+");
+    puts("| PID | Arrival Time | Burst Time | Completion Time | Turnaround Time |  Waiting Time |");
+    puts("+-----+--------------+------------+-----------------+-----------------+---------------+");
 
     for(i=0; i<n; i++) {
-        printf("| %2d  |     %2d     |      %2d      |        %2d       |        %2d        | \n"
-               , p[i].pid, p[i].bt, p[i].comt, p[i].tat,p[i].wt );
-        puts("+-----+------------+--------------+-----------------+------------------+");
+        printf("| %2d  |      %2d      |     %2d     |       %2d        |       %2d        |      %2d       | \n"
+               , p[i].pid,p[i].at, p[i].bt, p[i].wt, p[i].tat,p[i].comt );
+        puts("+-----+--------------+------------+-----------------+-----------------+---------------+");
     }
 
 }
-
